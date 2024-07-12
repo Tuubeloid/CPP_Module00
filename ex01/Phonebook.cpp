@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 19:04:45 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/11 19:41:41 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/07/12 12:24:48 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,33 @@ Once a command has been correctly executed, the program waits for another one. I
 stops when the user inputs EXIT.
 Give a relevant name to your executable.*/
 
+
+#include <iostream>
+#include <string>
+
+class Contact
+{
+  private:
+    std::string firstName;
+    std::string lastName;
+    std::string nickName;
+    std::string phoneNum;
+    std::string darkestSecret;
+  
+  public:
+    void setFirstname(const std::string& fistName) { this->firstName = firstName}
+    void setLastName(const std::string& lastName) { this->lastName = lastName; }
+    void setNickName(const std::string& nickName) { this->nickName = nickName; }
+    void setPhoneNum(const std::string& phoneNum) { this->phoneNum = phoneNum; }
+    void setDarkestSecret(const std::string& darkestSecret) { this->darkestSecret = darkestSecret; }
+
+    std::string getFirstName() const { return firstName; }
+    std::string getLastName() const { return lastName; }
+    std::string getNickname() const { return nickName; }
+    std::string getPhoneNum() const { return phoneNum; }
+    std::string getDarkestSecret() const { return darkestSecret; }
+};
+
 class PhoneBook
 {
   private:
@@ -63,8 +90,7 @@ class PhoneBook
     int     _index;
 
   public:
-    Phonebook(void);
-    ~Phonebook(void);
+    //Phonebook(void);
     void    add(void);
     void    search(void);
     void    print(Contact contact);
@@ -74,15 +100,23 @@ class PhoneBook
 /*The contact fields are: first name, last name, nickname, phone number, and
 darkest secret. A saved contact can’t have empty fields.*/
 
-class Contact
+int main(void)
 {
-  private:
-    string firstName;
-    string lastName;
-    string nickName;
-    string phoneNum;
-    string darkestSecret;
-  
-  public:
-    
-};
+  PhoneBook phoneBook;
+  std::string action;
+
+  std::cout << "Give input:\n";
+  while (1)
+  {
+    std::cin >> action;
+    if (action == "ADD")
+      phoneBook.add();
+    else if (action == "SEARCH")
+      phoneBook.search();
+    else if (action == "EXIT")
+      break ;
+    else
+      std::cout << "Invalid input\n";
+  }
+  return (0);
+}
