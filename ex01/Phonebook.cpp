@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 19:04:45 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/12 16:34:28 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:50:59 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ contact information, one field per line.
 Once a command has been correctly executed, the program waits for another one. It
 stops when the user inputs EXIT.
 Give a relevant name to your executable.*/
+
+// If given input is empty the behaviour is not working, need to work on that
+// Check the wrapping around of the indexes in the contacts array
 
 #include <iostream>
 #include <iomanip>
