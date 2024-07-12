@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 19:04:45 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/12 12:24:48 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:38:07 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ Once a command has been correctly executed, the program waits for another one. I
 stops when the user inputs EXIT.
 Give a relevant name to your executable.*/
 
-
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 class Contact
@@ -70,7 +70,7 @@ class Contact
     std::string darkestSecret;
   
   public:
-    void setFirstname(const std::string& fistName) { this->firstName = firstName}
+    void setFirstName(const std::string& fistName) { this->firstName = firstName; }
     void setLastName(const std::string& lastName) { this->lastName = lastName; }
     void setNickName(const std::string& nickName) { this->nickName = nickName; }
     void setPhoneNum(const std::string& phoneNum) { this->phoneNum = phoneNum; }
@@ -90,8 +90,72 @@ class PhoneBook
     int     _index;
 
   public:
-    //Phonebook(void);
-    void    add(void);
+    PhoneBook() : _index(0) {}
+
+    void    search(void)
+    {
+      std::cout << std::setw(10) << "Index" << "|"
+                << std::setw(10) << "First name" << "|"
+                << std::setw(10) << "Last name" << "|"
+                << std::setw(10) << "Nickname" << "\n";
+      std::cout << "-------------------------------------------\n";
+
+      for (int i = 0; i < 8; i++)
+      {
+        
+      }
+    }
+
+    void    add(void)
+    {
+      Contact newContact;
+      std::string input;
+
+      std::cout << "Enter first name: ";
+      std::getline(std::cin >> std::ws, input);
+      if (input.empty()) {
+        std::cout << "First name cannot be empty.\n";
+        return ;
+      }
+      newContact.setFirstName(input);
+
+      std::cout << "Enter last name: ";
+      std::getline(std::cin, input);
+      if (input.empty()) {
+        std::cout << "Last name cannot be empty.\n";
+        return ;
+      }
+      newContact.setLastName(input);
+
+      std::cout << "Enter nickname: ";
+      std::getline(std::cin, input);
+      if (input.empty()) {
+        std::cout << "Nickname cannot be empty.\n";
+        return ;
+      }
+      newContact.setNickName(input);
+
+      std::cout << "Enter phone number: ";
+      std::getline(std::cin, input);
+      if (input.empty()) {
+        std::cout << "Phone number cannot be empty.\n";
+        return ;
+      }
+      newContact.setPhoneNum(input);
+
+      std::cout << "Set darkest secret: ";
+      std::getline(std::cin, input);
+      if (input.empty()) {
+        std::cout << "Darkest Secret cannot be empty.\n";
+        return ;
+      }
+      newContact.setDarkestSecret(input);
+    
+      _contacts[_index] = newContact;
+      _index = (_index + 1) % 8;
+      std::cout << "Contact added successfully.\n";
+      return ;
+    }
     void    search(void);
     void    print(Contact contact);
     Contact get_contact(int index);
@@ -105,9 +169,9 @@ int main(void)
   PhoneBook phoneBook;
   std::string action;
 
-  std::cout << "Give input:\n";
   while (1)
   {
+    std::cout << "Give input:\n";
     std::cin >> action;
     if (action == "ADD")
       phoneBook.add();
