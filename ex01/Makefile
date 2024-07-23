@@ -6,15 +6,15 @@
 #    By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 17:16:16 by tvalimak          #+#    #+#              #
-#    Updated: 2024/07/12 11:13:33 by tvalimak         ###   ########.fr        #
+#    Updated: 2024/07/23 20:45:06 by tvalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = Phonebook.cpp
+SRC = Phonebook.cpp Contact.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 NAME = Phonebook
-CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
 $(NAME): $(OBJ)
