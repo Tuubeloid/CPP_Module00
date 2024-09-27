@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:58:25 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/23 20:39:23 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:24:04 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ private:
     std::string darkestSecret;
 
 public:
-    void setFirstName(const std::string& firstName) { this->firstName = firstName; }
-    void setLastName(const std::string& lastName) { this->lastName = lastName; }
-    void setNickName(const std::string& nickName) { this->nickName = nickName; }
-    void setPhoneNum(const std::string& phoneNum) { this->phoneNum = phoneNum; }
-    void setDarkestSecret(const std::string& darkestSecret) { this->darkestSecret = darkestSecret; }
+    void setFirstName(const std::string& firstName);
+    void setLastName(const std::string& lastName);
+    void setNickName(const std::string& nickName);
+    void setPhoneNum(const std::string& phoneNum);
+    void setDarkestSecret(const std::string& darkestSecret);
 
-    std::string getFirstName() const { return firstName; }
-    std::string getLastName() const { return lastName; }
-    std::string getNickName() const { return nickName; }
-    std::string getPhoneNum() const { return phoneNum; }
-    std::string getDarkestSecret() const { return darkestSecret; }
+    std::string getFirstName() const;
+    std::string getLastName() const;
+    std::string getNickName() const;
+    std::string getPhoneNum() const;
+    std::string getDarkestSecret() const;
 };
 
 #endif

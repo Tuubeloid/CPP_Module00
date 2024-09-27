@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:43:54 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/23 19:59:03 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:16:29 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iomanip>
 #include <string>
 #include <limits>
+#include <cctype>
 
 class PhoneBook
 {
