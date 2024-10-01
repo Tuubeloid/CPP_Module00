@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 19:04:45 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/23 21:00:05 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:29:44 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ std::string PhoneBook::truncate(const std::string& str, size_t width) const
 }
 
 bool isOnlyWhitespace(const std::string& str) {
-    for (char ch : str) {
-        if (!std::isspace(ch)) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (!std::isspace(str[i])) {
             return false;
         }
     }
