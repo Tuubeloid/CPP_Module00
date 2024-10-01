@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 19:04:45 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/10/01 12:29:44 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:50:22 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,47 +74,79 @@ void PhoneBook::add()
     Contact newContact;
     std::string input;
 
+    // Handle input for first name
     std::cout << "Enter first name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) { // Check for EOF
+        std::cout << "\nEOF detected. Exiting input.\n";
+        std::cin.clear(); // Clear EOF flag for future I/O operations
+        return;
+    }
     if (isOnlyWhitespace(input)) {
         std::cout << "First name cannot be empty or just whitespace.\n";
         return;
     }
     newContact.setFirstName(input);
 
+    // Handle input for last name
     std::cout << "Enter last name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) { // Check for EOF
+        std::cout << "\nEOF detected. Exiting input.\n";
+        std::cin.clear(); // Clear EOF flag
+        return;
+    }
     if (isOnlyWhitespace(input)) {
         std::cout << "Last name cannot be empty or just whitespace.\n";
         return;
     }
     newContact.setLastName(input);
 
+    // Handle input for nickname
     std::cout << "Enter nickname: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) { // Check for EOF
+        std::cout << "\nEOF detected. Exiting input.\n";
+        std::cin.clear(); // Clear EOF flag
+        return;
+    }
     if (isOnlyWhitespace(input)) {
         std::cout << "Nickname cannot be empty or just whitespace.\n";
         return;
     }
     newContact.setNickName(input);
 
+    // Handle input for phone number
     std::cout << "Enter phone number: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) { // Check for EOF
+        std::cout << "\nEOF detected. Exiting input.\n";
+        std::cin.clear(); // Clear EOF flag
+        return;
+    }
     if (isOnlyWhitespace(input)) {
         std::cout << "Phone number cannot be empty or just whitespace.\n";
         return;
     }
     newContact.setPhoneNum(input);
 
+    // Handle input for darkest secret
     std::cout << "Set darkest secret: ";
     std::getline(std::cin, input);
+    if (std::cin.eof()) { // Check for EOF
+        std::cout << "\nEOF detected. Exiting input.\n";
+        std::cin.clear(); // Clear EOF flag
+        return;
+    }
     if (isOnlyWhitespace(input)) {
         std::cout << "Darkest Secret cannot be empty or just whitespace.\n";
         return;
     }
     newContact.setDarkestSecret(input);
 
+    // Add the new contact to the phonebook and update the index
     _contacts[_index] = newContact;
     _index = (_index + 1) % 8;
+
     std::cout << "Contact added successfully.\n";
 }

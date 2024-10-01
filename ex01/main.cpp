@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 20:43:51 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/07/23 20:44:18 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:52:06 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,20 @@ int main(void)
     {
         std::cout << "Give input:\n";
         std::cin >> action;
+        // Check if we have reached EOF or a failure state after the input
+        if (std::cin.eof()) {
+            std::cout << "\nEOF detected. Exiting.\n";
+            break;
+        }
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the fail state
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore any invalid input
+            std::cout << "Invalid input. Please try again.\n";
+            continue;
+        }
         if (action == "ADD")
         {
+            // Ignore any leftover input from previous operations
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             phoneBook.add();
         }
@@ -32,9 +44,14 @@ int main(void)
             phoneBook.search();
         }
         else if (action == "EXIT")
+        {
             break;
+        }
         else
-            std::cout << "Invalid input\n";
+        {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear any remaining characters
+            std::cout << "Invalid input. Please enter 'ADD', 'SEARCH', or 'EXIT'.\n";
+        }
     }
     return 0;
 }

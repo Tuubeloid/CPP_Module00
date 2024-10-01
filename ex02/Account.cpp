@@ -6,7 +6,7 @@
 /*   By: tvalimak <tvalimak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 19:02:52 by tvalimak          #+#    #+#             */
-/*   Updated: 2024/10/01 12:09:15 by tvalimak         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:55:52 by tvalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int Account::_totalNbWithdrawals = 0;
 
 // Helper function to display the current timestamp
 void Account::_displayTimestamp(void) {
-    std::time_t now = std::time(nullptr);
+    std::time_t now = std::time(NULL);
     std::tm *ltm = std::localtime(&now);
     std::cout << "[" << 1900 + ltm->tm_year
               << std::setw(2) << std::setfill('0') << 1 + ltm->tm_mon
